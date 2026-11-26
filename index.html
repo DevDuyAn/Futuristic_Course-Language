@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Futuristic Course Manager</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+    <!-- Background Layer -->
+    <div class="bg-layer"></div>
+
+    <div class="app-container">
+        <!-- Header Section -->
+        <header class="glass-panel main-header">
+            <div class="header-left">
+                <img src="../AnVerse/img/anverse.jpg" alt="AnVerse Logo" class="logo">
+                <span class="brand-name">AnCourse</span>
+            </div>
+            
+            <div class="header-center">
+                <div class="search-box">
+                    <input type="text" id="product_search" placeholder="Tìm kiếm khóa học (tên, ID, loại)...">
+                </div>
+            </div>
+            
+            <div class="header-right">
+                <button class="btn btn-primary" id="toggleAddForm_btn">Thêm khóa học</button>
+            </div>
+        </header>
+
+        <!-- Add Course Form (Accordion style under header) -->
+        <div id="addForm_container" class="glass-panel form-panel hidden">
+            <h3 class="form-title" id="form_title">Thêm khóa học mới</h3>
+            <div class="form-grid">
+                <div class="input-group">
+                    <label>ID khóa học</label>
+                    <input type="number" id="product_id" placeholder="Nhập ID (VD: 7)">
+                </div>
+                <div class="input-group">
+                    <label>Tên khóa học</label>
+                    <input type="text" id="product_name" placeholder="Tên ngôn ngữ (VD: React)">
+                </div>
+                <div class="input-group">
+                    <label>Giá ($)</label>
+                    <input type="number" id="product_price" placeholder="Mức giá">
+                </div>
+                <div class="input-group">
+                    <label>Category</label>
+                    <select id="product_category">
+                        <option value="Frontend">Frontend</option>
+                        <option value="Backend">Backend</option>
+                        <option value="Fullstack">Fullstack</option>
+                        <option value="Mobile">Mobile</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label>Level</label>
+                    <select id="product_level">
+                        <option value="beginner">Beginner</option>
+                        <option value="intermediate">Intermediate</option>
+                        <option value="advanced">Advanced</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label>Thời lượng</label>
+                    <input type="text" id="product_duration" placeholder="VD: 4w, 8w">
+                </div>
+                <div class="input-group checkbox-group">
+                    <label class="custom-checkbox">
+                        <input type="checkbox" id="product_instock" checked>
+                        <span class="checkmark"></span>
+                        Còn chỗ (Has Slot)
+                    </label>
+                </div>
+            </div>
+            <div class="form-actions">
+                <button class="btn btn-success" id="productAdd_btn">Thêm khóa học</button>
+                <button class="btn btn-outline hidden" id="productCancelEdit_btn">Hủy chỉnh sửa</button>
+            </div>
+        </div>
+
+        <!-- Main Layout: Content and Cart -->
+        <div class="main-layout">
+            
+            <!-- Left Side: Filter & Courses List -->
+            <div class="left-section">
+                <!-- Filter Box -->
+                <div class="glass-panel filter-box">
+                    <div class="filter-group">
+                        <button class="btn btn-filter active" id="products_all">Tất cả</button>
+                        <button class="btn btn-filter" id="product_instock_filter">Còn chỗ</button>
+                        <button class="btn btn-filter" id="product_outOfStock_filter">Hết chỗ</button>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <select id="filter_category" class="glass-select">
+                            <option value="">Lọc Category</option>
+                            <option value="Frontend">Frontend</option>
+                            <option value="Backend">Backend</option>
+                            <option value="Fullstack">Fullstack</option>
+                        </select>
+                        <select id="filter_price" class="glass-select">
+                            <option value="">Sắp xếp giá</option>
+                            <option value="asc">Tăng dần</option>
+                            <option value="desc">Giảm dần</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Courses List -->
+                <div class="courses-grid" id="products_list">
+                    <!-- Cards will be generated by main.js -->
+                </div>
+            </div>
+
+            <!-- Right Side: Cart -->
+            <div class="right-section">
+                <div class="glass-panel cart-panel">
+                    <div class="cart-header">
+                        <h3>Giỏ hàng của bạn</h3>
+                        <div class="cart-icon">🛒</div>
+                    </div>
+                    
+                    <div class="cart-items" id="cartProducts_list">
+                        <!-- Cart items will be generated by main.js -->
+                        <div class="empty-cart">Giỏ hàng trống</div>
+                    </div>
+                    
+                    <div class="cart-footer hidden" id="cart_footer">
+                        <div class="cart-total">
+                            <span>Tổng học phí:</span>
+                            <span class="total-price" id="total_price_display">0$</span>
+                        </div>
+                        <button class="btn btn-checkout" id="checkout_btn">Đăng ký khóa học</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Success -->
+    <div id="success_modal" class="modal-overlay hidden">
+        <div class="modal-content glass-panel">
+            <div class="success-icon">✓</div>
+            <h2>Đăng ký thành công!</h2>
+            <p>Cảm ơn bạn đã lựa chọn khóa học của AnCourse.</p>
+            <button class="btn btn-primary" id="close_modal_btn">Đóng</button>
+        </div>
+    </div>
+
+    <script src="./main.js"></script>
+</body>
+</html>
