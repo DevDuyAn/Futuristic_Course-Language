@@ -1,1 +1,1 @@
-Khóa học công  nghệ tương lai
+Khóa học ngôn ngữ tương lai
