@@ -5,7 +5,8 @@ let languages = [
     { id: 3, name: "JavaScript", price: 1500, category: "Frontend", hasSlot: true, level: "intermediate", duration: "4w" },
     { id: 4, name: "Python", price: 2000, category: "Backend", hasSlot: true, level: "beginner", duration: "4w" },
     { id: 5, name: "C++", price: 2500, category: "Backend", hasSlot: false, level: "advanced", duration: "6w" },
-    { id: 6, name: "Java", price: 2200, category: "Backend", hasSlot: true, level: "intermediate", duration: "5w" }
+    { id: 6, name: "Java", price: 2200, category: "Backend", hasSlot: true, level: "intermediate", duration: "5w" },
+    { id: 7, name: "TypeScript", price: 2300, category: "Frontend", hasSlot: true, level: "intermediate", duration: "5w" }
 ];
 
 let cart = [];
